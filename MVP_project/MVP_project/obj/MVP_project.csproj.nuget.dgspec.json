@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aliev\\source\\repos\\MVP_project\\MVP_project\\MVP_project.csproj": {}
+    "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\MVP_project\\MVP_project\\MVP_project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aliev\\source\\repos\\MVP_project\\MVP_project\\MVP_project.csproj": {
+    "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\MVP_project\\MVP_project\\MVP_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aliev\\source\\repos\\MVP_project\\MVP_project\\MVP_project.csproj",
+        "projectUniqueName": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\MVP_project\\MVP_project\\MVP_project.csproj",
         "projectName": "MVP_project",
-        "projectPath": "C:\\Users\\aliev\\source\\repos\\MVP_project\\MVP_project\\MVP_project.csproj",
+        "projectPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\MVP_project\\MVP_project\\MVP_project.csproj",
         "packagesPath": "C:\\Users\\aliev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aliev\\source\\repos\\MVP_project\\MVP_project\\obj\\",
+        "outputPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\MVP_project\\MVP_project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aliev\\AppData\\Roaming\\NuGet\\NuGet.Config",

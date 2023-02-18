@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\Introduction.csproj": {}
+    "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\Introduction\\Introduction\\Introduction.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\Introduction.csproj": {
+    "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\Introduction\\Introduction\\Introduction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\Introduction.csproj",
+        "projectUniqueName": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\Introduction\\Introduction\\Introduction.csproj",
         "projectName": "Introduction",
-        "projectPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\Introduction.csproj",
+        "projectPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\Introduction\\Introduction\\Introduction.csproj",
         "packagesPath": "C:\\Users\\aliev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\obj\\",
+        "outputPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Winform\\Introduction\\Introduction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aliev\\AppData\\Roaming\\NuGet\\NuGet.Config",

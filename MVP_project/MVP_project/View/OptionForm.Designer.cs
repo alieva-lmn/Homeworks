@@ -42,6 +42,7 @@
             this.viewInfo.TabIndex = 7;
             this.viewInfo.Text = "View Info";
             this.viewInfo.UseVisualStyleBackColor = true;
+            this.viewInfo.Click += new System.EventHandler(this.viewInfo_Click);
             // 
             // cancelButton
             // 
@@ -51,6 +52,7 @@
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // editButton
             // 
@@ -60,6 +62,7 @@
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // label1
             // 
@@ -81,6 +84,7 @@
             this.Controls.Add(this.label1);
             this.Name = "OptionForm";
             this.Text = "OptionForm";
+            this.Load += new System.EventHandler(this.OptionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

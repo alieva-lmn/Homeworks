@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVP_project.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace MVP_project.View
         public InfoForm()
         {
             InitializeComponent();
+        }
+        public InfoForm(Person person)
+        {
+            InitializeComponent();
+
+            nameLabel.Text = person.Name;
+            surnameLabel.Text = person.Surname;
+            ageLabel.Text = person.Age.ToString();
+
+            pictureBox.Image = Image.FromFile(person.ImagePath);
         }
     }
 }

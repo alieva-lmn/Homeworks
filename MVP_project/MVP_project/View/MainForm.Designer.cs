@@ -126,6 +126,7 @@
             this.addButton.TabIndex = 4;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // label1
             // 
@@ -165,6 +166,7 @@
             this.imgButton.TabIndex = 8;
             this.imgButton.Text = "Browse";
             this.imgButton.UseVisualStyleBackColor = true;
+            this.imgButton.Click += new System.EventHandler(this.imgButton_Click);
             // 
             // panel1
             // 
@@ -195,6 +197,7 @@
             this.removeButton.TabIndex = 0;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // panel2
             // 
@@ -215,6 +218,7 @@
             this.peopleListBox.Name = "peopleListBox";
             this.peopleListBox.Size = new System.Drawing.Size(290, 430);
             this.peopleListBox.TabIndex = 0;
+            this.peopleListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.peopleListBox_MouseClick);
             // 
             // MainForm
             // 
