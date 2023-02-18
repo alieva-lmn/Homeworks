@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "WoDXEnlpf3PA3ttbZAACH9HKKIn3dC1JSXDmcPxcDcMIcA12EgpihxdiSFff1cucIC2jJnu2LeU7Te35lN6K6w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Introduction\\Introduction\\Introduction.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aliev\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\aliev\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\aliev\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\aliev\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
