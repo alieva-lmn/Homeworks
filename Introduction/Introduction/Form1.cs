@@ -17,7 +17,7 @@ namespace Introduction
         {
             var json = FileService.ReadFromFile(path, FileMode.Open);
 
-            if (json == "")
+            if (String.IsNullOrEmpty(json))
             {
                 InitializeComponent();
             }
