@@ -21,6 +21,7 @@ namespace CashMachine
     {
         public GasStation gasStation { get; set; } = new();
         double overall = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace CashMachine
             item3PriceTextBox.Text = gasStation.Menu[2].Price.ToString();
             item4PriceTextBox.Text = gasStation.Menu[3].Price.ToString();
         }
+
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
@@ -58,22 +60,27 @@ namespace CashMachine
             double finalPrice = Convert.ToDouble(gasOverallPrice.Text) + Convert.ToDouble(cafeOverallPrice.Text);
             overallPrice.Text = finalPrice.ToString();
         }
+
         private void quantityRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             priceTextBox.Text = "0";
         }
+
         private void priceRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             quantityTextBox.Text = "0";
         }
+
         private void quantityTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             calculateOverallPrice();
         }
+
         private void priceTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             calculateOverallPrice();
         }
+
         private void calculateOverallPrice()
         {
             if (quantityTextBox.IsEnabled == true && gasolinePriceTextBox.Text != "")
@@ -92,6 +99,7 @@ namespace CashMachine
                 overallPrice.Text = finalPrice.ToString();
             }
         }
+
         private void paymentButton_Click(object sender, RoutedEventArgs e)
         {
             if (overallPrice.Text != "0")
