@@ -21,7 +21,6 @@ namespace CashMachine
     {
         public GasStation gasStation { get; set; } = new();
         double overall = 0;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +36,6 @@ namespace CashMachine
             item3PriceTextBox.Text = gasStation.Menu[2].Price.ToString();
             item4PriceTextBox.Text = gasStation.Menu[3].Price.ToString();
         }
-
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
@@ -51,8 +49,12 @@ namespace CashMachine
             {
                 if (cb.Content == item.Name)
                 {
+                    if (item.Count == 0)
+                        overall = 0;
+
                     double res = item.Count * item.Price;
                     overall += res;
+                    overall = Math.Round(overall, 2);
                     cafeOverallPrice.Text = overall.ToString();
                 }
             }
@@ -60,32 +62,28 @@ namespace CashMachine
             double finalPrice = Convert.ToDouble(gasOverallPrice.Text) + Convert.ToDouble(cafeOverallPrice.Text);
             overallPrice.Text = finalPrice.ToString();
         }
-
         private void quantityRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             priceTextBox.Text = "0";
         }
-
         private void priceRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             quantityTextBox.Text = "0";
         }
-
         private void quantityTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             calculateOverallPrice();
         }
-
         private void priceTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             calculateOverallPrice();
         }
-
         private void calculateOverallPrice()
         {
             if (quantityTextBox.IsEnabled == true && gasolinePriceTextBox.Text != "")
             {
                 double res = Convert.ToDouble(gasolinePriceTextBox.Text, System.Globalization.CultureInfo.InvariantCulture) * Convert.ToDouble(quantityTextBox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                res = Math.Round(res, 2);
                 gasOverallPrice.Text = res.ToString();
 
                 double finalPrice = Convert.ToDouble(gasOverallPrice.Text) + Convert.ToDouble(cafeOverallPrice.Text);
@@ -99,12 +97,11 @@ namespace CashMachine
                 overallPrice.Text = finalPrice.ToString();
             }
         }
-
         private void paymentButton_Click(object sender, RoutedEventArgs e)
         {
             if (overallPrice.Text != "0")
             {
-                MessageBox.Show("Оплата прошла успешно!");
+                MessageBox.Show("Оплата прошла успешно!", "Successful");
             }
         }
     }
