@@ -20,6 +20,7 @@ namespace ToDoList
     public partial class AddWindow : Window
     {
         public List<Task> Todolist { get; set; } = new();
+
         string path = "myList";
 
         public AddWindow()
@@ -33,7 +34,6 @@ namespace ToDoList
             if (!String.IsNullOrEmpty(json))
             {
                 Todolist = SerializeService.DeserializeList(json);
-                
             }
 
             Task newTask = new();

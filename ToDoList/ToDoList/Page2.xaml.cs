@@ -20,7 +20,6 @@ namespace ToDoList
         public Page2()
         {
             InitializeComponent();
-
         }
     }
 }

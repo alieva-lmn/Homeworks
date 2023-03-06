@@ -45,7 +45,7 @@ namespace CashMachine
             gasStation.Menu[2].Count = Convert.ToUInt16(item3QuantityTextBox.Text);
             gasStation.Menu[3].Count = Convert.ToUInt16(item4QuantityTextBox.Text);
 
-            foreach (var item in gasStation.Menu)
+            foreach (var item in gasStation.Menu) // odno udalil, chtobi pred ostalis, price readonly
             {
                 if (cb.Content == item.Name)
                 {
@@ -56,6 +56,7 @@ namespace CashMachine
                     overall += res;
                     overall = Math.Round(overall, 2);
                     cafeOverallPrice.Text = overall.ToString();
+                    break;
                 }
             }
 
