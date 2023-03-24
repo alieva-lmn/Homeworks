@@ -1,0 +1,19 @@
+{
+  "$type": "System.Collections.ObjectModel.ObservableCollection`1[[eCommerceUserPanel.Model.User, eCommerceUserPanel]], System.ObjectModel",
+  "$values": [
+    {
+      "$type": "eCommerceUserPanel.Model.User, eCommerceUserPanel",
+      "Username": "alievalmn",
+      "Password": "lamanlaman",
+      "Confirmation": "lamanlaman",
+      "Email": "alievalmn@gmail.com"
+    },
+    {
+      "$type": "eCommerceUserPanel.Model.User, eCommerceUserPanel",
+      "Username": "lamlam",
+      "Password": "lamlam",
+      "Confirmation": "lamlam",
+      "Email": "laman96@mail.ru"
+    }
+  ]
+}
