@@ -43,12 +43,16 @@ namespace eCommerceUserPanel.ViewModel
             get => new(
                 () =>
                 {
-                    if (AuthViewModel.isLoggedIn == true)
+                    if (AuthViewModel.isLoggedIn == true && MyCart.Count > 0)
                     {
                         var res = $"Thank you for your purchase, {AuthViewModel.Username}";
                         MessageBox.Show(res, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                         MyCart.Clear();
                         OverallPrice.OverallPrice = 0;
+                    }
+                    else if(AuthViewModel.isLoggedIn == true && MyCart.Count == 0)
+                    {
+                        MessageBox.Show("There is no any item in cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
@@ -97,7 +101,7 @@ namespace eCommerceUserPanel.ViewModel
             });
         }
 
-        public RelayCommand<object> DeleteCommand //padaet
+        public RelayCommand<object> DeleteCommand
         {
             get => new(id =>
             {

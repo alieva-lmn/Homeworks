@@ -104,7 +104,7 @@
                 <ItemsControl ItemsSource="{Binding Books}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <mD:Flipper Margin="5 0">
+                            <mD:Flipper Margin="12 0">
                                 <mD:Flipper.FrontContent>
                                     <Border Width="150" Height="250">
                                         <StackPanel>
@@ -123,14 +123,15 @@
                                                 HorizontalAlignment="Center"
                                                 Text="{Binding Title}"
                                                 Margin="0 5"
-                                                FontSize="12"
-                                                TextWrapping="Wrap"/>
-                                            <TextBlock 
+                                                FontSize="12"/>
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                                <TextBlock 
                                                 HorizontalAlignment="Center" 
                                                 Text="{Binding Price}"
                                                 Margin="0 5"
-                                                FontSize="14"
-                                                TextWrapping="Wrap"/>
+                                                FontSize="14"/>
+                                                <Label Content="₼" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                                            </StackPanel>
                                         </StackPanel>
                                     </Border>
                                 </mD:Flipper.FrontContent>

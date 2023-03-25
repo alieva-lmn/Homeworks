@@ -22,19 +22,12 @@ namespace eCommerceUserPanel.ViewModel
         private readonly INavigationService _navigationService;
         private readonly IUserManageService _userManageService;
         public static string Username { get; set; }
-
         public static bool isLoggedIn;
-        private readonly IMessenger _messenger;
-        public AuthViewModel(INavigationService navigationService, IUserManageService userManageService, IMessenger messenger)
+
+        public AuthViewModel(INavigationService navigationService, IUserManageService userManageService)
         {
             _navigationService = navigationService;
             _userManageService = userManageService;
-            _messenger = messenger;
-
-            _messenger.Register<DataMessage>(this, message =>
-            {
-                //Username = message.Data
-            });
         }
         public RelayCommand RegisterCommand
         {
@@ -44,7 +37,6 @@ namespace eCommerceUserPanel.ViewModel
                     _navigationService.NavigateTo<RegisterViewModel>();
                 });
         }
-
         public RelayCommand<object> LoginCommand
         {
             get => new(
@@ -53,18 +45,21 @@ namespace eCommerceUserPanel.ViewModel
                     try
                     {
                         var password = param as PasswordBox;
-
                         var user = _userManageService.GetUser(Username, password.Password);
-                        //var res = $"{user.Email} logged in";
 
-                       // MessageBox.Show(res, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                         isLoggedIn = true;
 
-                        _navigationService.NavigateTo<CartInfoViewModel>();
+                        if (CartInfoViewModel.MyCart.Count > 0)
+                        {
+                            _navigationService.NavigateTo<CartInfoViewModel>();
+                        }
+                        else
+                            _navigationService.NavigateTo<UserPanelViewModel>();
+
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("User doesn't exist");
+                        MessageBox.Show("User doesn't exist", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }
