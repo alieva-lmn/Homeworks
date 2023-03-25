@@ -27,7 +27,6 @@ namespace eCommerceAdminPanel.ViewModel
             _navigationService = navigationService;
             _bookService = bookService;
         }
-
         public RelayCommand BrowseCommand
         {
             get => new(
@@ -61,11 +60,11 @@ namespace eCommerceAdminPanel.ViewModel
                     {
                         _bookService.Add(MyBook);
                         MyBook = null;
-                        MessageBox.Show("Yes");
+                        MessageBox.Show("Item successfully added to list", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("No");
+                        MessageBox.Show("Something went wrong...", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }
