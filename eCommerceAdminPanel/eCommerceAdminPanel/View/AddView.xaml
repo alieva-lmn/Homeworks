@@ -93,7 +93,7 @@
         <Button 
                 Grid.Row="8" Grid.Column="1"
                 Command="{Binding BrowseCommand}"
-                Style="{DynamicResource MaterialDesignDarkButton}"
+                Style="{DynamicResource MaterialDesignRaisedButton}"
                 Width="80" Height="30"
                 Content="Browse">
         </Button>
@@ -109,9 +109,9 @@
         <Button 
                 Grid.Row="9" Grid.Column="1"
                 Command="{Binding OkCommand}"
-                Style="{DynamicResource MaterialDesignDarkButton}"
+                Style="{DynamicResource MaterialDesignRaisedButton}"
                 Width="80" Height="30"
-                Content="ADD">
+                Content="Add">
         </Button>
 
 

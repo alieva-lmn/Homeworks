@@ -17,63 +17,70 @@
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="500" d:DesignWidth="750"
              Name="CartInfoControl">
+
+
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.04*"/>
-            <RowDefinition Height="0.04*"/>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.02*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.025*"/>
-            <ColumnDefinition Width="0.25*"/>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
 
-        <Button 
-                Grid.Row="0" Grid.Column="0"
-                Command="{Binding BackCommand}"
-                Style="{DynamicResource MaterialDesignFlatDarkButton}"
-                Width="80px"
-                HorizontalAlignment="Center">
-            <mD:PackIcon Height="25" Width="25" Kind="ArrowBack"/>
-        </Button>
-
-        <Label Content="CART" Margin="20 0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label Content="Subtotal: " Margin="80 0" FontWeight="DemiBold" Grid.Column="2" Grid.Row="2" FontSize="22" VerticalAlignment="Top"/>
+        <Label Content="CART" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Subtotal: " HorizontalAlignment="Left" Margin="150 20 0 0" FontWeight="DemiBold" Grid.Row="2" FontSize="22" VerticalAlignment="Top"/>
         <TextBox 
-                 Grid.Row="2" Grid.Column="2"
+                 Grid.Row="2"
                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                 Text="{Binding ClientCart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding OverallPrice.OverallPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  IsReadOnly="True"
-                 Margin="20"
-                 Height="60" Width="150"
+                 Margin="10"
+                 Height="50" Width="100"
                  HorizontalContentAlignment="Center"
-                 FontSize="20"/>
+                 VerticalAlignment="Top"
+                 FontSize="15"/>
 
         <Button 
                 Grid.Row="3" Grid.Column="2"
-                Margin="10"
                 Content="Proceed to checkout"
+                Margin="6"
                 Foreground="DarkGreen"
                 FontSize="20"
                 Command="{Binding CheckoutCommand}"
                 Style="{DynamicResource MaterialDesignFlatDarkButton}"
                 Width="220px" Height="40"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top">
+                VerticalAlignment="Bottom">
         </Button>
 
-        <ListBox ItemsSource="{Binding MyCart}" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <ListBox ItemsSource="{Binding MyCart}" Grid.Row="1" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Stretch="Uniform" Source="{Binding ImagePath}" Width="50" Height="80"  Margin="10"/>
-                        <CheckBox Content="{Binding Title}" Width="250" Height="30" Margin="10 0 0 0"/>
-                        <Label Content="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"  Margin="10 0 0 0"/>
-                        <TextBox Text="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="12" Height="35"  Style="{StaticResource MaterialDesignOutlinedTextBox}"  HorizontalContentAlignment="Center"/>
+                        <Image Stretch="Uniform" Source="{Binding SingleBook.ImagePath}" Width="50" Height="80"  Margin="10"/>
+                        <CheckBox Content="{Binding SingleBook.Title}" Width="250" Height="30" Margin="10 0 0 0"/>
+                        <Label Content="{Binding SingleBook.Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Margin="10 0 0 0"/>
+                        <Label Content="₼" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Button Command="{Binding Path=DataContext.MinusCommand, ElementName=CartInfoControl}"
+                                    CommandParameter="{Binding SingleBook.Id}"
+                                    Content="-" Style="{StaticResource MaterialDesignFlatDarkButton}"/>
+                            <Label Content="{Binding ItemCount}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+                            <Button Command="{Binding Path=DataContext.PlusCommand, ElementName=CartInfoControl}"
+                                    CommandParameter="{Binding SingleBook.Id}"
+                                    Content="+" Style="{StaticResource MaterialDesignFlatDarkButton}"/>
+                            
+                        </StackPanel>
+                        <Button Command="{Binding Path=DataContext.DeleteCommand, ElementName=CartInfoControl}"
+                                CommandParameter="{Binding SingleBook.Id}"
+                                Style="{DynamicResource MaterialDesignFlatDarkButton}">
+                            <mD:PackIcon Height="25" Width="25" Kind="Delete"/>
+                        </Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

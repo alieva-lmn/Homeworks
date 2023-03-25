@@ -120,7 +120,7 @@
                                                 </Image>
                                             </Border>
                                             <TextBlock 
-                                                HorizontalAlignment="Center" 
+                                                HorizontalAlignment="Center"
                                                 Text="{Binding Title}"
                                                 Margin="0 5"
                                                 FontSize="12"

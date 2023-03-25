@@ -38,15 +38,6 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
 
-        <Button 
-                Grid.Row="0" Grid.Column="0"
-                Command="{Binding BackCommand}"
-                Style="{DynamicResource MaterialDesignFlatDarkButton}"
-                Width="80px"
-                HorizontalAlignment="Center">
-            <mD:PackIcon Height="25" Width="25" Kind="ArrowBack"/>
-        </Button>
-
             <Border Margin="15" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="6">
             <Image Stretch="Uniform" Source="{Binding Info.ImagePath}"/>
              </Border>
@@ -71,8 +62,11 @@
         <Label Content="{Binding Info.Genre}" Grid.Column="3" Grid.Row="3" Margin="5" FontSize="15" VerticalAlignment="Center"/>
         <Label Content="{Binding Info.Publisher}" Grid.Column="3" Grid.Row="4" Margin="5" FontSize="15" VerticalAlignment="Center"/>
         <Label Content="{Binding Info.Year}" Grid.Column="3" Grid.Row="5" Margin="5" FontSize="15" VerticalAlignment="Center"/>
-        <Label Content="{Binding Info.Price}" Foreground="DarkRed" FontWeight="DemiBold" Grid.Column="3" Grid.Row="6" Margin="5" FontSize="15" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="6">
+            <Label Content="{Binding Info.Price}" Foreground="DarkRed" FontWeight="DemiBold" Margin="5 0 0 0" FontSize="16" VerticalAlignment="Center"/>
+            <Label Content="₼" Foreground="DarkRed" FontWeight="DemiBold" FontSize="18" VerticalAlignment="Center"/>
 
+        </StackPanel>
         <Button 
                 Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4"
                 Command="{Binding BuyCommand}"

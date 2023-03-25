@@ -24,22 +24,13 @@ namespace eCommerceUserPanel.ViewModel
         {
             _messenger = messenger;
             _bookService = bookService;
+            _navigationService = navigationService;
 
             _messenger.Register<DataMessage>(this, message =>
             {
                 Info = message.Data as Book;
             });
-            _navigationService = navigationService;
         }
-        public RelayCommand BackCommand
-        {
-            get => new(
-                () =>
-                {
-                    _navigationService.NavigateTo<UserPanelViewModel>();
-                });
-        }
-
         public RelayCommand BuyCommand
         {
             get => new(

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using LibClass.Model;
 using LibClass.Services.Interfaces;
 using System.Windows;
+using eCommerceUserPanel.Model;
 
 namespace eCommerceUserPanel.ViewModel
 {
@@ -20,7 +21,7 @@ namespace eCommerceUserPanel.ViewModel
 
         public ObservableCollection<string> Cats { get; set; } = new();
         public ObservableCollection<Book> Books { get; set; } = new();
-        public ObservableCollection<Book> Cart { get; set; } = new();
+        public ObservableCollection<Cart> Cart { get; set; } = new();
 
         private readonly INavigationService _navigationService;
         private readonly ICategoryManageService _catsService;
@@ -105,13 +106,16 @@ namespace eCommerceUserPanel.ViewModel
                         {
                             if (item.Id.ToString() == id.ToString())
                             {
-                                if (CartInfoViewModel.MyCart.Contains(item))
+                                Cart cart = new();
+                                cart.SingleBook = item;
+
+                                if (CartInfoViewModel.MyCart.Contains(cart))
                                 {
                                     MessageBox.Show("Item is already in your cart", "WARNING",MessageBoxButton.OK,MessageBoxImage.Warning);
                                 }
                                 else
                                 {
-                                    CartInfoViewModel.MyCart.Add(item);
+                                    CartInfoViewModel.MyCart.Add(cart);
                                     MessageBox.Show("Item successfully added to your cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                                 }
                                 break;
@@ -163,7 +167,7 @@ namespace eCommerceUserPanel.ViewModel
         {
             get => new(() =>
             {
-                _navigationService.NavigateTo<CartInfoViewModel>();
+                _navigationService.NavigateTo<CartInfoViewModel>(CartInfoViewModel.MyCart.Sum(x => x.SingleBook.Price));
             });
         }
 

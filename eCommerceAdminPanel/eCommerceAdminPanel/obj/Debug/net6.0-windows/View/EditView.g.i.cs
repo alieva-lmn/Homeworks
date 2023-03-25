@@ -65,7 +65,7 @@ namespace eCommerceAdminPanel.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/eCommerceAdminPanel;V1.0.0.0;component/view/editview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/eCommerceAdminPanel;component/view/editview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\EditView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -23,13 +23,27 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+      
+        
         <Grid Grid.Row="0">
             <Border>
                 <Border.Background>
-                    <SolidColorBrush Color="DarkSlateGray"/>
+                    <SolidColorBrush Color="#E91E63"/>
                 </Border.Background>
             </Border>
+            
+            <Button 
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource MaterialDesignFlatDarkButton}"
+                Width="60px" Height="30px"
+                Foreground="White"
+                HorizontalContentAlignment="Left"
+                HorizontalAlignment="Left">
+
+                <mD:PackIcon Height="25" Width="25" Kind="ArrowBack"/>
+            </Button>
             <StackPanel
+                
             Orientation="Horizontal"
             HorizontalAlignment="Right">
 

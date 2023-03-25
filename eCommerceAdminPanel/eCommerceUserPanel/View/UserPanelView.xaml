@@ -101,7 +101,7 @@
                 <ItemsControl ItemsSource="{Binding Books}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="150" Height="250" Margin="10">
+                            <Border Width="150" Height="250" Margin="0 10 0 0">
                                 <StackPanel>
                                     <Button 
                                              Command="{Binding Path=DataContext.InfoCommand, ElementName=UserControl}"
@@ -116,11 +116,16 @@
                                                 Text="{Binding Title}"
                                                 Margin="0 5"
                                                 FontSize="12"/>
-                                    <TextBlock 
+                                    
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock 
                                                 HorizontalAlignment="Center" 
                                                 Text="{Binding Price}"
                                                 Margin="0 5"
                                                 FontSize="14"/>
+                                        <Label Content="₼" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" />
+
+                                    </StackPanel>
                                     <Button 
                                                 Command="{Binding Path=DataContext.AddToCartCommand, ElementName=UserControl}"
                                                 CommandParameter="{Binding Id}"

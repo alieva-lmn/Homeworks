@@ -32,18 +32,10 @@
     </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"/>
+        <ColumnDefinition Width="0.1*"/>
         <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    </Grid.ColumnDefinitions>
 
-        <Button 
-                Grid.Row="0" Grid.Column="0"
-                Command="{Binding BackCommand}"
-                Style="{DynamicResource MaterialDesignFlatDarkButton}"
-                Width="80px"
-                HorizontalAlignment="Center">
-            <mD:PackIcon Height="25" Width="25" Kind="ArrowBack"/>
-        </Button>
 
         <Label VerticalAlignment="Center" Content="Register" FontSize="42" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
 
@@ -52,14 +44,14 @@
         <TextBox Style="{DynamicResource MaterialDesignOutlinedTextBox}" 
                      Height="50"
                      Margin="0 20 0 0"  
-                     FontSize="16"
+                     FontSize="14"
                      mD:HintAssist.Hint="Enter your username"
                      Text="{Binding User.Username}"/>
 
         <TextBox Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                      Height="50"
                      Margin="0 20 0 0" 
-                     FontSize="16"
+                     FontSize="14"
                      mD:HintAssist.Hint="Enter your mail address"
                      Text="{Binding User.Email}"/>
 
@@ -68,7 +60,7 @@
                          Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" 
                          Height="50"
                          Margin="0 20 0 0" 
-                         FontSize="16"
+                         FontSize="14"
                          mD:HintAssist.Hint="Enter your password"/>
 
         <PasswordBox
@@ -76,7 +68,7 @@
                          Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"
                          Height="50" 
                          Margin="0 20 0 0" 
-                         FontSize="16"
+                         FontSize="14"
                          mD:HintAssist.Hint="Confirm Password"/>
 
 

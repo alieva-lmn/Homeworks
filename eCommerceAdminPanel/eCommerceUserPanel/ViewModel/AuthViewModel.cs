@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
+using eCommerceUserPanel.Model;
 
 namespace eCommerceUserPanel.ViewModel
 {
@@ -23,21 +24,18 @@ namespace eCommerceUserPanel.ViewModel
         public static string Username { get; set; }
 
         public static bool isLoggedIn;
-
-        public AuthViewModel(INavigationService navigationService, IUserManageService userManageService)
+        private readonly IMessenger _messenger;
+        public AuthViewModel(INavigationService navigationService, IUserManageService userManageService, IMessenger messenger)
         {
             _navigationService = navigationService;
             _userManageService = userManageService;
-        }
-        public RelayCommand BackCommand
-        {
-            get => new(
-                () =>
-                {
-                    _navigationService.NavigateTo<UserPanelViewModel>();
-                });
-        }
+            _messenger = messenger;
 
+            _messenger.Register<DataMessage>(this, message =>
+            {
+                //Username = message.Data
+            });
+        }
         public RelayCommand RegisterCommand
         {
             get => new(
@@ -57,10 +55,12 @@ namespace eCommerceUserPanel.ViewModel
                         var password = param as PasswordBox;
 
                         var user = _userManageService.GetUser(Username, password.Password);
-                        var res = $"{user.Email} logged in";
+                        //var res = $"{user.Email} logged in";
 
-                        MessageBox.Show(res, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
+                       // MessageBox.Show(res, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                         isLoggedIn = true;
+
+                        _navigationService.NavigateTo<CartInfoViewModel>();
                     }
                     catch (Exception ex)
                     {

@@ -26,16 +26,6 @@ namespace eCommerceUserPanel.ViewModel
             _navigationService = navigationService;
             _userService = userService;
         }
-
-        public RelayCommand BackCommand
-        {
-            get => new(
-                () =>
-                {
-                    _navigationService.NavigateTo<UserPanelViewModel>();
-                });
-        }
-
         public RelayCommand LoginCommand
         {
             get => new(
@@ -65,7 +55,11 @@ namespace eCommerceUserPanel.ViewModel
                             User.Confirmation = confirm.Password;
 
                             _userService.Add(User);
-                            MessageBox.Show("YES");
+                            
+                            var result = $"You are successfully signed up";
+                            MessageBox.Show(result, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
+                            AuthViewModel.Username = User.Username;
+                            _navigationService.NavigateTo<AuthViewModel>();
                         }
                         else
                         {
