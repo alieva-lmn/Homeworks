@@ -17,8 +17,9 @@ namespace eCommerceUserPanel.Services.Classes
 {
     public class UserManageService : IUserManageService
     {
-        public static ObservableCollection<User> Users { get; set; } = new();
         private readonly string? path = FilePath.userPath;
+        public static ObservableCollection<User> Users { get; set; } = new();
+        
         public ObservableCollection<User> DownloadUsersData()
         {
             var json = FileService.ReadFromFile(path, FileMode.OpenOrCreate);
@@ -35,13 +36,10 @@ namespace eCommerceUserPanel.Services.Classes
 
         private User? DownloadUser(string username, string password)
         {
-            var result = DownloadUsersData();
-            var json = FileService.ReadFromFile(path, FileMode.OpenOrCreate);
+            var Users = DownloadUsersData();
 
-            if (result.Count > 0)
+            if (Users.Count > 0)
             {
-                Users = SerializeService.DeserializeList<ObservableCollection<User>>(json);
-
                 foreach (var item in Users)
                 {
                     if (item.Username == username && item.Password == password)

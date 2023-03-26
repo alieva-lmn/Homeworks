@@ -24,11 +24,5 @@ namespace eCommerceUserPanel.Model
                 NotifyPropertyChanged(nameof(OverallPrice));
             }
         }
-
-        public PriceCounter()
-        {
-            //overallPrice = MyCart.Sum(x => x.SingleBook.Price);
-        }
-
     }
 }

@@ -12,7 +12,7 @@ namespace LibClass.Services.Interfaces
     {
         public void Add(Book book);
         public void Replace(Book book);
-        public List<Book> DownloadData();
-        public void SendData(List<Book> books);
+        public ObservableCollection<Book> DownloadData();
+        public void SendData(ObservableCollection<Book> books);
     }
 }

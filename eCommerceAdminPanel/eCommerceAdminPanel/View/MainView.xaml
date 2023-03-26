@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="AdminPanel" Height="500" Width="850" MinHeight="500" MinWidth="500" WindowStyle="None">
+        Title="AdminPanel" Height="550" Width="750" MinHeight="550" MinWidth="600" WindowStyle="None">
 
     <Grid MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>

@@ -16,11 +16,9 @@ namespace eCommerceUserPanel.ViewModel
     public class UserPanelViewModel : ViewModelBase
     {
         public string? Searchbar { get; set; }
-        public List<Book> books { get; set; } = new();
-        public List<string> cats { get; set; } = new();
-
         public ObservableCollection<string> Cats { get; set; } = new();
         public ObservableCollection<Book> Books { get; set; } = new();
+        private ObservableCollection<Book> _books = new();
         public ObservableCollection<Cart> Cart { get; set; } = new();
 
         private readonly INavigationService _navigationService;
@@ -32,40 +30,27 @@ namespace eCommerceUserPanel.ViewModel
             _bookService = bookService;
             _catsService = catsService;
 
-            books = _bookService.DownloadData();
-            cats = _catsService.SetCategory();
+            Books = _bookService.DownloadData();
+            _books = _bookService.DownloadData();
 
-            foreach (var item in books)
-            {
-                Books.Add(item);
-            }
-            foreach (var item in cats)
-            {
-                Cats.Add(item);
-            }
+            Cats = _catsService.SetCategory();
         }
 
         public RelayCommand<object> CategoryTitleCommand
         {
             get => new(genre =>
             {
-                try
+                if (genre != null)
                 {
-                    if (genre != null)
+                    Books.Clear();
+
+                    foreach (var item in _books)
                     {
-                        Books.Clear();
-                        foreach (var item in books)
+                        if (item.Genre == genre.ToString())
                         {
-                            if (item.Genre == genre.ToString())
-                            {
-                                Books.Add(item);
-                            }
+                            Books.Add(item);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             });
         }
@@ -74,22 +59,15 @@ namespace eCommerceUserPanel.ViewModel
         {
             get => new(id =>
             {
-                try
+                if (id != null)
                 {
-                    if (id != null)
+                    foreach (var item in Books)
                     {
-                        foreach (var item in Books)
+                        if (item.Id.ToString() == id.ToString())
                         {
-                            if (item.Id.ToString() == id.ToString())
-                            {
-                                _navigationService.NavigateTo<FullInfoViewModel>(item);
-                            }
+                            _navigationService.NavigateTo<FullInfoViewModel>(item);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             });
         }
@@ -98,34 +76,27 @@ namespace eCommerceUserPanel.ViewModel
         {
             get => new(id =>
             {
-                try
+              if (id != null)
                 {
-                    if (id != null)
+                    foreach (var book in Books)
                     {
-                        foreach (var item in Books)
+                        if (book.Id.ToString() == id.ToString())
                         {
-                            if (item.Id.ToString() == id.ToString())
-                            {
-                                Cart cart = new();
-                                cart.SingleBook = item;
+                            Cart cart = new Cart();
+                            cart.SingleBook = book;
 
-                                if (CartInfoViewModel.MyCart.Contains(cart))
-                                {
-                                    MessageBox.Show("Item is already in your cart", "WARNING",MessageBoxButton.OK,MessageBoxImage.Warning);
-                                }
-                                else
-                                {
-                                    CartInfoViewModel.MyCart.Add(cart);
-                                    MessageBox.Show("Item successfully added to your cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
-                                }
-                                break;
+                            if (!CartInfoViewModel.CheckExists(id.ToString()))
+                            {
+                                MessageBox.Show("Item is already in your cart", "WARNING", MessageBoxButton.OK, MessageBoxImage.Warning);
                             }
+                            else
+                            {
+                                CartInfoViewModel.MyCart.Add(cart);
+                                MessageBox.Show("Item successfully added to your cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                            break;
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             });
         }
@@ -135,7 +106,7 @@ namespace eCommerceUserPanel.ViewModel
             {
                 Books.Clear();
 
-                foreach (var item in books)
+                foreach (var item in _books)
                 {
                     Books.Add(item);
                 }
@@ -155,7 +126,6 @@ namespace eCommerceUserPanel.ViewModel
                     }
                     Books.Clear();
                 }
-
                 foreach (var item in tmp_list)
                 {
                     Books.Add(item);
@@ -183,13 +153,13 @@ namespace eCommerceUserPanel.ViewModel
                     _navigationService.NavigateTo<AuthViewModel>();
             });
         }
-        public RelayCommand RefreshCommand // REFRESH CATS
+        public RelayCommand RefreshCommand
         {
             get => new(() =>
             {
                 Books.Clear();
 
-                foreach (var item in books)
+                foreach (var item in _books)
                 {
                     Books.Add(item);
                 }

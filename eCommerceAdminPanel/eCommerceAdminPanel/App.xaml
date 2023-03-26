@@ -26,6 +26,10 @@
                 <View:EditView></View:EditView>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type ViewModel:CatViewModel}">
+                <View:CatView></View:CatView>
+            </DataTemplate>
+
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />

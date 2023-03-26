@@ -65,11 +65,11 @@ namespace eCommerceAdminPanel.ViewModel
                     if (Info != null)
                     {
                         _bookService.Replace(Info);
-                        MessageBox.Show("Changes were successfully saved.", "FYI");
+                        MessageBox.Show("Changes were successfully saved.", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Something went wrong...", "WARNING");
+                        MessageBox.Show("Something went wrong...", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }

@@ -39,6 +39,7 @@ namespace eCommerceAdminPanel
             Container.RegisterSingleton<AdminPanelViewModel>();
             Container.RegisterSingleton<AddViewModel>();
             Container.RegisterSingleton<EditViewModel>();
+            Container.RegisterSingleton<CatViewModel>();
         }
 
         private void MainStartup()

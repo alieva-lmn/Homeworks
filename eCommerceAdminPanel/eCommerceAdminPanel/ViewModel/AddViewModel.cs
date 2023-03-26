@@ -50,7 +50,6 @@ namespace eCommerceAdminPanel.ViewModel
                     _navigationService.NavigateTo<AdminPanelViewModel>();
                 });
         }
-
         public RelayCommand OkCommand
         {
             get => new(

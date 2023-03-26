@@ -25,12 +25,9 @@ namespace eCommerceAdminPanel.ViewModel
     public class AdminPanelViewModel : ViewModelBase
     {
         public string? Searchbar { get; set; }
-
-        public List<Book> books { get; set; } = new();
-        public List<string> cats { get; set; } = new();
-
         public ObservableCollection<Book> Books { get; set; } = new();
-        public ObservableCollection<string> Cats { get; set; } = new();
+        private ObservableCollection<Book> _books = new();
+        public ObservableCollection<string?> Cats { get; set; } = new();
 
         private readonly INavigationService _navigationService;
         private readonly IBookManageService _bookService;
@@ -42,17 +39,10 @@ namespace eCommerceAdminPanel.ViewModel
             _bookService = bookService;
             _catsService = catsService;
 
-            books = _bookService.DownloadData();
-            cats = _catsService.SetCategory();
+            Books = _bookService.DownloadData();
+            _books = _bookService.DownloadData();
 
-            foreach (var item in books)
-            {
-                Books.Add(item);
-            }
-            foreach (var item in cats)
-            {
-                Cats.Add(item);
-            }
+            Cats = _catsService.SetCategory();
         }
 
         public RelayCommand SearchCommand
@@ -61,37 +51,30 @@ namespace eCommerceAdminPanel.ViewModel
             {
                 Books.Clear();
 
-                foreach (var item in books)
+                foreach (var item in _books)
                 {
                     Books.Add(item);
                 }
 
                 var tmp_list = new List<Book>();
 
-                try
+                if (Searchbar != null)
                 {
-                    if (Searchbar != null)
-                    {
-                        var tmp = char.ToUpper(Searchbar[0]) + Searchbar.Substring(1);
+                    var tmp = char.ToUpper(Searchbar[0]) + Searchbar.Substring(1);
 
-                        foreach (var item in Books)
-                        {
-                            if (item.Title.Contains(tmp))
-                            {
-                                tmp_list.Add(item);
-                            }
-                        }
-                        Books.Clear();
-                    }
-                    foreach (var item in tmp_list)
+                    foreach (var item in Books)
                     {
-                        Books.Add(item);
+                        if (item.Title.Contains(tmp))
+                        {
+                            tmp_list.Add(item);
+                        }
                     }
+                    Books.Clear();
                 }
-                catch (Exception ex)
+                foreach (var item in tmp_list)
                 {
-                    MessageBox.Show(ex.Message);
-                }  
+                    Books.Add(item);
+                }
             });
         }
 
@@ -99,22 +82,15 @@ namespace eCommerceAdminPanel.ViewModel
         {
             get => new(id =>
             {
-                try
+                if (id != null)
                 {
-                    if (id != null)
+                    foreach (var item in Books)
                     {
-                        foreach (var item in Books)
+                        if (item.Id.ToString() == id.ToString())
                         {
-                            if (item.Id.ToString() == id.ToString())
-                            {
-                                _navigationService.NavigateTo<EditViewModel>(item);
-                            }
+                            _navigationService.NavigateTo<EditViewModel>(item);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             });
         }
@@ -122,26 +98,18 @@ namespace eCommerceAdminPanel.ViewModel
         {
             get => new(id =>
             {
-                try
+                if (id != null)
                 {
-                    if (id != null)
+                    foreach (var item in Books)
                     {
-                        foreach (var item in Books)
+                        if (item.Id.ToString() == id.ToString())
                         {
-                            if (item.Id.ToString() == id.ToString())
-                            {
-                                Books.Remove(item);
-                                books.Remove(item);
-                            }
+                            Books.Remove(item);
+                            _books = Books;
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                _bookService.SendData(books);
+                _bookService.SendData(Books);
             });
         }
 
@@ -153,13 +121,13 @@ namespace eCommerceAdminPanel.ViewModel
             });
         }
 
-        public RelayCommand RefreshCommand // REFRESH CATS
+        public RelayCommand RefreshCommand
         {
             get => new(() =>
             {
                 Books.Clear();
 
-                foreach (var item in books)
+                foreach (var item in _books)
                 {
                     Books.Add(item);
                 }
@@ -170,23 +138,17 @@ namespace eCommerceAdminPanel.ViewModel
         {
             get => new(genre =>
             {
-                try
+                if (genre != null)
                 {
-                    if (genre != null)
+                    Books.Clear();
+
+                    foreach (var item in _books)
                     {
-                        Books.Clear();
-                        foreach (var item in books)
+                        if (item.Genre == genre.ToString())
                         {
-                            if (item.Genre == genre.ToString())
-                            {
-                                Books.Add(item);
-                            }
+                            Books.Add(item);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             });
         }

@@ -10,6 +10,6 @@ namespace LibClass.Services.Interfaces
 {
     public interface ICategoryManageService
     {
-        public List<string?> SetCategory();
+        public ObservableCollection<string?> SetCategory();
     }
 }

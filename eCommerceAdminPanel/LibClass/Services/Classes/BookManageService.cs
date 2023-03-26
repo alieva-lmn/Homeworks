@@ -14,10 +14,10 @@ namespace LibClass.Services.Classes
 {
     public class BookManageService : IBookManageService
     {
-        public static List<Book> books { get; set; } = new();
         private readonly string? path = FilePath.bookPath;
+        public static ObservableCollection<Book> books { get; set; } = new();
 
-        public List<Book> DownloadData()
+        public ObservableCollection<Book> DownloadData()
         {
             var json = FileService.ReadFromFile(path, FileMode.OpenOrCreate);
             
@@ -27,11 +27,11 @@ namespace LibClass.Services.Classes
             }
             else
             {
-                return books = SerializeService.DeserializeList<List<Book>>(json);
+                return books = SerializeService.DeserializeList<ObservableCollection<Book>>(json);
             }
         }
 
-        public void SendData(List<Book> books)
+        public void SendData(ObservableCollection<Book> books)
         {
             var res = SerializeService.Serialize(books);
             FileService.WriteToFile(res, path, FileMode.Truncate);

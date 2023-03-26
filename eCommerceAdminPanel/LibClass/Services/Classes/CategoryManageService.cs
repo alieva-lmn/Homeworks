@@ -6,20 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 
 namespace LibClass.Services.Classes
 {
     public class CategoryManageService : ICategoryManageService
     {
-        private List<string> _cats = new();
+        private ObservableCollection<string> _cats = new();
+
         private readonly IBookManageService _bookService;
 
         public CategoryManageService(IBookManageService bookService)
         {
             _bookService = bookService;
         }
-        public List<string> SetCategory()
+        public ObservableCollection<string> SetCategory()
         {
             var books = _bookService.DownloadData();
 
@@ -31,8 +32,16 @@ namespace LibClass.Services.Classes
             HashSet<string> hashset = new();
             IEnumerable<string> no_duplicates = _cats.Where(e => hashset.Add(e));
 
-            _cats = no_duplicates.ToList();
+            var cats = no_duplicates.ToList();
+            _cats.Clear();
+
+            foreach (var cat in cats)
+            {
+                _cats.Add(cat);
+            }
             return _cats;
         }
+
+        
     }
 }

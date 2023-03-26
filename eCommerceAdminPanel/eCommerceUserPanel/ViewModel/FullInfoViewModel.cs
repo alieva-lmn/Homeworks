@@ -19,6 +19,7 @@ namespace eCommerceUserPanel.ViewModel
         private readonly INavigationService _navigationService;
         private readonly IBookManageService _bookService;
         public Book Info { get; set; } = new();
+        public static bool isChecked;
 
         public FullInfoViewModel(IMessenger messenger, INavigationService navigationService, IBookManageService bookService)
         {
@@ -43,6 +44,7 @@ namespace eCommerceUserPanel.ViewModel
                     }
                     else
                     {
+                        isChecked = true;
                         _navigationService.NavigateTo<AuthViewModel>();
                     }
                 });

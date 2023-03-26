@@ -53,6 +53,10 @@ namespace eCommerceUserPanel.ViewModel
                         {
                             _navigationService.NavigateTo<CartInfoViewModel>();
                         }
+                        else if (FullInfoViewModel.isChecked)
+                        {
+                            _navigationService.NavigateTo<FullInfoViewModel>();
+                        }
                         else
                             _navigationService.NavigateTo<UserPanelViewModel>();
 

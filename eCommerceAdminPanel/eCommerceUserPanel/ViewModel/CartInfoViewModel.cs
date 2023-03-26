@@ -23,6 +23,7 @@ namespace eCommerceUserPanel.ViewModel
         private readonly INavigationService _navigationService;
         public PriceCounter OverallPrice { get; set; } = new();
         public static ObservableCollection<Cart> MyCart { get; set; } = new();
+        public List<Cart> list = new();
 
         public CartInfoViewModel(IMessenger messenger, INavigationService navigationService)
         {
@@ -43,16 +44,24 @@ namespace eCommerceUserPanel.ViewModel
             get => new(
                 () =>
                 {
-                    if (AuthViewModel.isLoggedIn == true && MyCart.Count > 0)
+                    if (MyCart.Count == 0)
+                    {
+                        MessageBox.Show("There is no any item in cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else if (AuthViewModel.isLoggedIn == true && MyCart.Count > 0)
                     {
                         var res = $"Thank you for your purchase, {AuthViewModel.Username}";
                         MessageBox.Show(res, "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        foreach (var cart in MyCart)
+                        {
+                            list.Add(cart);
+                        }
+
+                        _navigationService.NavigateTo<AccountViewModel>(list);
+
                         MyCart.Clear();
                         OverallPrice.OverallPrice = 0;
-                    }
-                    else if(AuthViewModel.isLoggedIn == true && MyCart.Count == 0)
-                    {
-                        MessageBox.Show("There is no any item in cart", "FYI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
@@ -113,12 +122,24 @@ namespace eCommerceUserPanel.ViewModel
                         {
                             MyCart.Remove(item);
                             OverallPrice.OverallPrice -= item.SingleBook.Price * item.ItemCount;
-                            OverallPrice.OverallPrice = Math.Round(OverallPrice.OverallPrice,2);
+                            OverallPrice.OverallPrice = Math.Round(OverallPrice.OverallPrice, 2);
                             break;
                         }
                     }
                 }
             });
+        }
+
+        public static bool CheckExists(string id)
+        {
+            foreach (var item in MyCart)
+            {
+                if (id == item.SingleBook.Id.ToString())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
