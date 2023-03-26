@@ -76,7 +76,7 @@
 
         <ListBox 
             Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
-            Margin="5 5 5 5"
+            Margin="5"
             Style="{DynamicResource MaterialDesignChoiceChipOutlineListBox}"
             ItemsSource="{Binding Cats}">
             <ListBox.ItemTemplate>
