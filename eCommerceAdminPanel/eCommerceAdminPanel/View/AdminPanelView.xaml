@@ -45,7 +45,7 @@
         </Button>
 
         <Button 
-                Grid.Column="3" Grid.Row="2"
+                Grid.Column="0" Grid.Row="2"
                 Command="{Binding RefreshCommand}"
                 Style="{DynamicResource MaterialDesignToolButton}"
                 Width="50px">
@@ -53,20 +53,13 @@
         </Button>
 
         <Button 
-                Grid.Row="2" Grid.Column="2"
+                Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
                 Command="{Binding AddCommand}"
                 Style="{DynamicResource MaterialDesignToolButton}"
                 Width="100px">
             <mD:PackIcon Height="30" Width="30" Kind="AddThick"/>
         </Button>
-
-        <Button 
-                Grid.Row="2" Grid.ColumnSpan="2"
-                Command="{Binding AddCategoryCommand}"
-                Style="{DynamicResource MaterialDesignToolButton}"
-                Width="100px">
-            <mD:PackIcon Height="30" Width="30" Kind="Add"/>
-        </Button>
+        
 
         <ListBox
             Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
@@ -74,34 +67,15 @@
             ItemsSource="{Binding Cats}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical"
-                                Height="70">
-                        <StackPanel Orientation="Horizontal"
-                                    Width="200">
-
+                    <StackPanel Height="70" Width="120">
                             <Button 
                                 Content="{Binding}"
                                 Command="{Binding Path=DataContext.CategoryTitleCommand, ElementName=AdminControl}"
                                 CommandParameter="{Binding}"
                                 Style="{DynamicResource MaterialDesignToolButton}"
                                 Width="70px">
-                        </Button>
-                        <Button 
-                                Command="{Binding Path=DataContext.DeleteCategoryCommand, ElementName=AdminControl}"
-                                CommandParameter="{Binding}"
-                                Style="{DynamicResource MaterialDesignToolButton}"
-                                Width="45px">
-                                <mD:PackIcon Kind="Delete"/>
-                        </Button>
-                        <Button 
-                                Command="{Binding Path=DataContext.EditCategoryCommand, ElementName=AdminControl}"
-                                CommandParameter="{Binding}"
-                                Style="{DynamicResource MaterialDesignToolButton}"
-                                Width="45px">
-                                <mD:PackIcon Kind="Edit"/>
-                        </Button>
+                            </Button>
                         </StackPanel>
-                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
