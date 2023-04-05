@@ -83,7 +83,6 @@
                 <DataTemplate>
                     <StackPanel>
                         <Button 
-                                Grid.Row="2" Grid.Column="0"
                                 Content="{Binding}"
                                 Command="{Binding Path=DataContext.CategoryTitleCommand, ElementName=UserControl}"
                                 CommandParameter="{Binding}"

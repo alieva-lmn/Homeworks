@@ -63,7 +63,7 @@ namespace eCommerceUserPanel.ViewModel
                         }
                         else
                         {
-                            MessageBox.Show("No");
+                            MessageBox.Show("Something went wrong...", "FYI", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 });
