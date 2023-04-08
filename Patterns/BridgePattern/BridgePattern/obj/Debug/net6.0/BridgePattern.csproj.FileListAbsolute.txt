@@ -1,0 +1,15 @@
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\bin\Debug\net6.0\BridgePattern.exe
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\bin\Debug\net6.0\BridgePattern.deps.json
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\bin\Debug\net6.0\BridgePattern.runtimeconfig.json
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\bin\Debug\net6.0\BridgePattern.dll
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\bin\Debug\net6.0\BridgePattern.pdb
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.csproj.AssemblyReference.cache
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.AssemblyInfoInputs.cache
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.AssemblyInfo.cs
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.csproj.CoreCompileInputs.cache
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.dll
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\refint\BridgePattern.dll
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.pdb
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\BridgePattern.genruntimeconfig.cache
+C:\Users\aliev\OneDrive\Desktop\Homeworks\BridgePattern\BridgePattern\obj\Debug\net6.0\ref\BridgePattern.dll

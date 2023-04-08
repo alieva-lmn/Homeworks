@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xm6kL3rgIIgfdleo1esYDJdhCULFqkd4cEQIM6LTFncpAUu/c3YYNQA+gXuzcf7pT9WHzLakMcQx358PG1pY8A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\eCommerceAdminPanel\\LibClass\\LibClass.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aliev\\.nuget\\packages\\mvvmlightlibsstd10\\5.4.1.1\\mvvmlightlibsstd10.5.4.1.1.nupkg.sha512",
+    "C:\\Users\\aliev\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

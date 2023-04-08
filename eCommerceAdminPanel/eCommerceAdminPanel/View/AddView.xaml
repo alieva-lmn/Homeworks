@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="eCommerceAdminPanel.View.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:eCommerceAdminPanel.View"
+             mc:Ignorable="d"
+             xmlns:ViewModel="clr-namespace:eCommerceAdminPanel.ViewModel"
+             xmlns:mD="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             d:DataContext="{d:DesignInstance Type=ViewModel:AddViewModel}"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="16"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="500" d:DesignWidth="750"
+             Name="AddControl">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="Title" Grid.Column="0" Grid.Row="1" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Author: " Grid.Column="0" Grid.Row="2" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Description: " Grid.Column="0" Grid.Row="3" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Genre: " Grid.Column="0" Grid.Row="4" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Publisher: " Grid.Column="0" Grid.Row="5" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Year: " Grid.Column="0" Grid.Row="6" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Price: " Grid.Column="0" Grid.Row="7" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+        <Label Content="Image: " Grid.Column="0" Grid.Row="8" Margin="5" FontSize="16" VerticalAlignment="Center"/>
+
+
+        <TextBox
+                Grid.Column="1" Grid.Row="1"
+                Text="{Binding MyBook.Title}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="2"
+                Text="{Binding MyBook.Author}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="3"
+                Text="{Binding MyBook.Description}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="60" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="4"
+                Text="{Binding MyBook.Genre}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}" 
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="5"
+                Text="{Binding MyBook.Publisher}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="6"
+                Text="{Binding MyBook.Year}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <TextBox
+                Grid.Column="1" Grid.Row="7"
+                Text="{Binding MyBook.Price}"
+                Style="{DynamicResource MaterialDesignTextBoxBase}"
+                mD:HintAssist.Hint="Enter here..." Height="35" Width="500" VerticalAlignment="Center"/>
+
+        <Button 
+                Grid.Row="8" Grid.Column="1"
+                Command="{Binding BrowseCommand}"
+                Style="{DynamicResource MaterialDesignRaisedButton}"
+                Width="80" Height="30"
+                Content="Browse">
+        </Button>
+        
+        <Button 
+                Grid.Row="9" Grid.Column="0"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource MaterialDesignFlatDarkButton}"
+                Width="100px">
+            <mD:PackIcon Height="30" Width="30" Kind="ArrowBack"/>
+        </Button>
+
+        <Button 
+                Grid.Row="9" Grid.Column="1"
+                Command="{Binding OkCommand}"
+                Style="{DynamicResource MaterialDesignRaisedButton}"
+                Width="80" Height="30"
+                Content="Add">
+        </Button>
+
+
+    </Grid>
+</UserControl>
