@@ -9,7 +9,7 @@ namespace BridgePattern.Classes
 {
     public abstract class Cosmetics
     {
-        protected ICare care;
+        protected ISkinCare care;
         public abstract void DoChanges();
     }
 }

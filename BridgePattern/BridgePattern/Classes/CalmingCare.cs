@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BridgePattern.Classes
 {
-    public class CalmingCare : ICare
+    public class CalmingCare : ISkinCare
     {
         public void DoChanges()
         {

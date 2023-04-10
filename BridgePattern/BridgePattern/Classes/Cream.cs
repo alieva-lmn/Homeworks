@@ -9,7 +9,7 @@ namespace BridgePattern.Classes
 {
     public class Cream : Cosmetics
     {
-        public Cream(ICare care)
+        public Cream(ISkinCare care)
         {
             this.care = care;
         }
