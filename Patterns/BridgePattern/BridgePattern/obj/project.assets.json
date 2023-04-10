@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\BridgePattern\\BridgePattern\\BridgePattern.csproj",
+      "projectUniqueName": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\Patterns\\BridgePattern\\BridgePattern\\BridgePattern.csproj",
       "projectName": "BridgePattern",
-      "projectPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\BridgePattern\\BridgePattern\\BridgePattern.csproj",
+      "projectPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\Patterns\\BridgePattern\\BridgePattern\\BridgePattern.csproj",
       "packagesPath": "C:\\Users\\aliev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\BridgePattern\\BridgePattern\\obj\\",
+      "outputPath": "C:\\Users\\aliev\\OneDrive\\Desktop\\Homeworks\\Patterns\\BridgePattern\\BridgePattern\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aliev\\AppData\\Roaming\\NuGet\\NuGet.Config",
