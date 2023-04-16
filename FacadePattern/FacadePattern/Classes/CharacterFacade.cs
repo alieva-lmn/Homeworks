@@ -10,6 +10,7 @@ namespace FacadePattern.Classes
     {
         private AppearanceBuilder _appearance;
         private SkillsBuilder _skills;
+        
         public CharacterFacade()
         {
             _appearance = new AppearanceBuilder();
