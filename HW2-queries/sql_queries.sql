@@ -64,7 +64,7 @@ order by ID desc
 select Name 'Group Name', Rating 'Group Rating'
 from Groups
 
-select CONCAT(Surname, ': ', Salary / Premium * 100, ' / ' ,Salary / (Salary + Premium) * 100)
+select CONCAT(Surname, ': ', Salary / Premium * 100, ' / ', Salary / (Salary + Premium) * 100)
 from Teachers
 
 select CONCAT('The dean of faculty ', Name, ' is ', Dean)
