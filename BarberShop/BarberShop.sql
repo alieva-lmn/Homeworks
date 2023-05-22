@@ -196,8 +196,6 @@ FROM dbo.GetLongestProcedure()
 
 -- TASK 2
 
--- 1
-
 CREATE FUNCTION dbo.GetTheMostPopularBarber()
 RETURNS TABLE
 AS
@@ -211,7 +209,6 @@ RETURN
 SELECT *
 FROM dbo.GetTheMostPopularBarber()
 
--- 2
 
 CREATE FUNCTION dbo.GetTop3BarberLastMonth()
 RETURNS TABLE
@@ -226,31 +223,19 @@ RETURN
 SELECT *
 FROM dbo.GetTop3BarberLastMonth()
 
--- 3 RATING ???
 
 CREATE FUNCTION dbo.GetTop3OfAllTime()
 RETURNS TABLE
 AS
 RETURN
-    (SELECT TOP 3 Barbers.FullName, AVG() as AverageRating
+    (SELECT TOP 3 Barbers.FullName
      FROM Barbers
      INNER JOIN VisitHistory on Barbers.BarberID = VisitHistory.BarberID
-     --having
-     GROUP BY Barbers.FullName
-     ORDER BY AverageRating DESC)
+     GROUP BY Barbers.FullName)
 
 SELECT *
 FROM dbo.GetTop3OfAllTime()
 
--- 4
-
--- 5
-
--- 6
-
--- 7
-
--- 8
 
 CREATE TRIGGER PreventJuniorBarberInsert
 ON Barbers
@@ -269,11 +254,38 @@ BEGIN
     END
 END
 
-select COUNT(*)
-from Barbers
+SELECT COUNT(*)
+FROM Barbers
 
 INSERT INTO Barbers values('Bertholdt Hoover', 'M', '0504086427', 'berutoto@example.com', '1922-10-11', '2019-02-24', 'Junior Barber');
 
--- 9
 
--- 10
+CREATE FUNCTION dbo.GetClientWithNoFeedback()
+RETURNS TABLE
+AS
+RETURN
+    SELECT Clients.ClientID, Clients.FullName, Clients.ContactPhone, Clients.Email
+    FROM Clients
+    LEFT JOIN Feedbacks ON Clients.ClientID = Feedbacks.ClientID
+    LEFT JOIN ClientFeedbacks ON Clients.ClientID = ClientFeedbacks.ClientID
+    WHERE Feedbacks.FeedbackID IS NULL AND ClientFeedbacks.Rating IS NULL;
+
+SELECT *
+FROM dbo.GetClientWithNoFeedback()
+
+
+CREATE FUNCTION dbo.GetClient()
+RETURNS TABLE
+AS
+RETURN
+    SELECT Clients.ClientID, Clients.FullName, Clients.ContactPhone, Clients.Email
+    FROM Clients
+    LEFT JOIN Appointments ON Clients.ClientID = Appointments.ClientID
+    WHERE DATEDIFF(YEAR, Appointments.Date, GETDATE()) > 1 OR Appointments.Date IS NULL;
+
+SELECT *
+FROM dbo.GetClient()
+
+
+
+
