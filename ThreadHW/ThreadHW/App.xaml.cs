@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EF_Project
+namespace ThreadHW
 {
     /// <summary>
     /// Interaction logic for App.xaml

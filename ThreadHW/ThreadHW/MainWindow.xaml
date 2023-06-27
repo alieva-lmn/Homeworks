@@ -1,0 +1,15 @@
+﻿<Window x:Class="ThreadHW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThreadHW"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="dataListBox" Background="FloralWhite" Height="350" Width="700"/>
+        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30">
+            <Button Background="LightPink" Content="DOWNLOAD" MinWidth="80" Click="ButtonDownload_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
