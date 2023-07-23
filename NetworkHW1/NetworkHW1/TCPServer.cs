@@ -24,8 +24,7 @@ namespace NetworkHW1
             _listener = new TcpListener(hostAdress, port);
             _listener.Start();
 
-            byte[] buffer = new byte[256];
-            string receivedMessage;
+            byte[] buffer = new byte[1024];
 
             using TcpClient client = _listener.AcceptTcpClient();
 
