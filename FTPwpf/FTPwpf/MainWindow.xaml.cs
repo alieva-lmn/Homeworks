@@ -12,8 +12,8 @@ namespace FTPwpf
     public partial class MainWindow : Window
     {
         public ObservableCollection<string> FilesList { get; set; } = new();
-        //private string IpPath = "ftp://192.168.1.8";
-        private string IpPath = "ftp://10.1.10.180";
+        private string IpPath = "ftp://192.168.1.8";
+        //private string IpPath = "ftp://10.1.10.180";
 
         public MainWindow()
         {
