@@ -24,11 +24,6 @@ namespace Server.FTP
                 {
                     fs.CopyTo(ftpStream);
                 }
-
-                //using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
-                //{
-                //    MessageBox.Show($"Upload File Complete, status {response.StatusDescription}");
-                //}
             }
         }
 

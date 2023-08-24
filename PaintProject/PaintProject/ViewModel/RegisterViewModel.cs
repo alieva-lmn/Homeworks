@@ -49,7 +49,7 @@ namespace PaintProject.ViewModel
                     var checker = new PasswordService(password, confirm);
                     bool myres = await _userManageService.CheckUserExistsAsync(User.Username);
 
-                    if (checker.IsMatch() && !myres)
+                    if (checker.IsMatch(User.Email) && !myres)
                     {
                         User.Password = password.Password;
                         User.Confirmation = confirm.Password;

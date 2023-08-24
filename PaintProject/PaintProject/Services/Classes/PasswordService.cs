@@ -21,13 +21,19 @@ namespace PaintProject.Services.Classes
             _confirm = confirm.Password;
         }
 
-        public bool IsMatch()
+        public bool IsMatch(string email)
         {
-            if (_password == _confirm)
+            if (_password == _confirm && IsValidEmail(email))
             {
                 return true;
             }
             return false;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(email, pattern);
         }
     }
 }
