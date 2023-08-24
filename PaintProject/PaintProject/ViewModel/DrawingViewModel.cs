@@ -26,6 +26,7 @@ using GalaSoft.MvvmLight.Messaging;
 using PaintProject.Messages;
 using Microsoft.VisualBasic.ApplicationServices;
 using User = PaintProject.Model.User;
+using Server.FTP;
 
 namespace PaintProject.ViewModel
 {
@@ -101,6 +102,8 @@ namespace PaintProject.ViewModel
             {
                 User = message.Data as User;
             });
+
+            Picture.User = User;
         }
 
 
@@ -227,9 +230,14 @@ namespace PaintProject.ViewModel
         {
             get => new(inkCanvas =>
             {
-                //filepath = put' na ftp
-                _pictureSaverService.SaveInkCanvasToImage(inkCanvas, );
-                User.PicCollection.Add(Picture);
+                
+                var ftppath = FTP_Server.CreateLocalDirectory(User.Username);
+                var filepath = $"{User.Username}/{Picture.ProjectName}";
+
+                _pictureSaverService.SaveInkCanvasToFTPServer(inkCanvas, filepath, Picture.ProjectName);
+
+                Picture.PicturePath = ftppath;
+                //User.PicCollection.Add(Picture);
                 
                 isSaved = true;
 
@@ -266,6 +274,7 @@ namespace PaintProject.ViewModel
             get => new(inkCanvas =>
             {
                 PrintDialog printDialog = new PrintDialog();
+
                 if (printDialog.ShowDialog() == true)
                 {
                     DrawingVisual drawingVisual = new DrawingVisual();

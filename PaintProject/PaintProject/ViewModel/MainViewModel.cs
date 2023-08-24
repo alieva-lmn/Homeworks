@@ -28,7 +28,7 @@ namespace PaintProject.ViewModel
         }
         public MainViewModel(IMessenger messenger)
         {
-            CurrentViewModel = App.Container.GetInstance<GreetingViewModel>();
+            CurrentViewModel = App.Container.GetInstance<LoginViewModel>();
 
             _messenger = messenger;
 
