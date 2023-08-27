@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .task-list {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task:nth-child(odd) {
+    background-color: #e0f0ff;
+  }
+  
+  .task:nth-child(even) {
+    background-color: #b0d0ff;
+  }
+  
+  .task .checkbox {
+    margin-right: 10px;
+  }
+  
+  .task .delete-icon {
+    margin-left: auto;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .task input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+  }
+  
