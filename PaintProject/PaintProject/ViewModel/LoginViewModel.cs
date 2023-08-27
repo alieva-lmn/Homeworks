@@ -22,8 +22,7 @@ namespace PaintProject.ViewModel
         private readonly INavigationService _navigationService;
         private readonly IUserManageService _userManageService;
         public static string Username { get; set; }
-
-        //bool isLoggedIn
+        public static bool isLoggedIn { get; set; } //checkbox 
 
         public LoginViewModel(INavigationService navigationService, IUserManageService userManageService)
         {
@@ -58,11 +57,16 @@ namespace PaintProject.ViewModel
                         var user = _userManageService.GetUserAsync(Username, password.Password);
 
                         if (user.Result != null)
+                        {
+                            if (isLoggedIn)
+                            {
+                                user.Result.isLoggedIn = true;
+                            }
                             _navigationService.NavigateTo<GreetingViewModel>(user.Result);
+                        }
                         else
                             MessageBox.Show($"'{Username}' doesn't exist", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                        //ISLOGGEDIN
                     }
                     catch (Exception ex)
                     {

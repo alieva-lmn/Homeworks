@@ -292,7 +292,7 @@ namespace PaintProject.ViewModel
 
         //EXIT
 
-        public RelayCommand<InkCanvas> SignOutCommand
+        public RelayCommand<InkCanvas> SignOutCommand //peresmotret
         {
             get => new(inkCanvas =>
             {
@@ -306,13 +306,13 @@ namespace PaintProject.ViewModel
                             SaveFile.Execute(inkCanvas);
                             break;
                         case MessageBoxResult.No:
-                            //vixod;
-                            break;
-                        default:
                             break;
                     }
+                    LoginViewModel.isLoggedIn = false;
+                    _navigationService.NavigateTo<LoginViewModel>();
                 }
-                //vixod
+                LoginViewModel.isLoggedIn = false;
+                _navigationService.NavigateTo<LoginViewModel>();
             });
         }
     }

@@ -26,10 +26,7 @@ namespace PaintProject.DBContext
         {
             modelBuilder.Entity<Picture>(entity =>
             {
-                entity.HasOne(p => p.User)
-                      .WithMany(u => u.PicCollection)
-                      .HasForeignKey(p => p.UserId);
-
+                entity.HasKey(p => p.PictureId);
                 entity.Property(p => p.ProjectName).HasDefaultValue("Untitled");
                 entity.Property(p => p.Date).HasDefaultValueSql("GETDATE()");
                 entity.Property(p => p.PicturePath).IsRequired();
@@ -37,10 +34,15 @@ namespace PaintProject.DBContext
 
             modelBuilder.Entity<User>(entity =>
             {
+                entity.HasMany(u => u.PicCollection)
+                        .WithOne(p => p.User)
+                        .HasForeignKey(p => p.UserId);
+
                 entity.Property(u => u.Username).IsRequired();
                 entity.Property(u => u.Password).IsRequired();
                 entity.Property(u => u.Confirmation).IsRequired();
                 entity.Property(u => u.Email).IsRequired();
+                entity.Property(u => u.isLoggedIn).IsRequired();
 
                 entity.HasIndex(u => u.Username).IsUnique();
                 entity.HasIndex(u => u.Email).IsUnique();

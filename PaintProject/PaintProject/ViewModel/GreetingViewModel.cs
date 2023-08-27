@@ -38,5 +38,14 @@ namespace PaintProject.ViewModel
                 _navigationService.NavigateTo<DrawingViewModel>(User);
             });
         }
+
+        public RelayCommand SignOutCommand //peresmotret
+        {
+            get => new(() =>
+            {
+                LoginViewModel.isLoggedIn = false;
+                _navigationService.NavigateTo<LoginViewModel>();
+            });
+        }
     }
 }
