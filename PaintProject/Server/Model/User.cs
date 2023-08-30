@@ -14,7 +14,7 @@ namespace PaintProject.Model
         public string Password { get; set; }
         public string Confirmation { get; set; }
         public string Email { get; set; }
-        public ObservableCollection<Picture> PicCollection { get; set; } = new();
+        public ObservableCollection<Picture> PicCollection { get; set; }
     }
 
 }

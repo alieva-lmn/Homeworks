@@ -105,7 +105,7 @@ namespace PaintProject.ViewModel
                 User = message.Data as User;
             });
 
-            Picture.User = User;
+            Picture.UserId = User.UserId;
         }
 
 
@@ -238,8 +238,16 @@ namespace PaintProject.ViewModel
 
                 _pictureSaverService.SaveInkCanvasToFTPServer(inkCanvas, filepath, Picture.ProjectName);
 
-                Picture.PicturePath = ftppath;
-                User.PicCollection.Add(Picture);
+                Picture.PicturePath = $"{ftppath}/{Picture.ProjectName}.png";
+
+                if (User.PicCollection == null)
+                {
+                    User.PicCollection = new();
+                    User.PicCollection.Add(Picture);
+                }
+                else
+                    User.PicCollection.Add(Picture);
+
                 _userManageService.UpdateUserAsync(User);
 
                 isSaved = true;

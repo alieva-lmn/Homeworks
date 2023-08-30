@@ -73,11 +73,6 @@ namespace Server.Services
 
                 if (existingUser != null)
                 {
-                    existingUser.UserId = updatedUser.UserId;
-                    existingUser.Username = updatedUser.Username;
-                    existingUser.Password = updatedUser.Password;
-                    existingUser.Confirmation = updatedUser.Confirmation;
-                    existingUser.Email = updatedUser.Email;
                     existingUser.PicCollection = updatedUser.PicCollection;
                     Context.SaveChanges();
                     return true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,9 @@ namespace PaintProject.Model
         public string ProjectName { get; set; } = "Untitled";
         public DateTime Date { get; set; } = DateTime.Now;
         public string PicturePath { get; set; }
-        public int UserId { get; set; } 
+        public int UserId { get; set; }
+
+        [JsonIgnore]
         public User User { get; set; } 
 
     }
