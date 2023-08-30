@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using PaintProject.DBContext;
 using PaintProject.Model;
 using System;
@@ -27,8 +28,10 @@ namespace Server.Services
         {
             try
             {
-                User user = Context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
-                
+                User? user = Context.Users
+                    .Include(u => u.PicCollection)
+                    .FirstOrDefault(u => u.Username == username && u.Password == password);
+
                 if (user != null)
                 {
                     string userData = JsonConvert.SerializeObject(user);
