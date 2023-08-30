@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,7 @@ namespace PaintProject.Model
         public string Password { get; set; }
         public string Confirmation { get; set; }
         public string Email { get; set; }
-        public bool isLoggedIn { get; set; }
-
-        public ICollection<Picture> PicCollection { get; set; }
+        public ObservableCollection<Picture> PicCollection { get; set; } = new();
     }
 
 }

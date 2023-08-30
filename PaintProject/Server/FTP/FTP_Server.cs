@@ -18,7 +18,7 @@ namespace Server.FTP
         {
             using (FileStream fs = new FileStream(localFilePath, FileMode.Open))
             {
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"{IpPath}/{ftpFilePath}");
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"{IpPath}/{ftpFilePath}.png");
                 request.Method = WebRequestMethods.Ftp.UploadFile;
 
                 using (Stream ftpStream = request.GetRequestStream())

@@ -38,10 +38,6 @@ namespace PaintProject.ViewModel
         }
         public MainViewModel(IMessenger messenger)
         {
-            if ()
-            {
-                
-            }
             CurrentViewModel = App.Container.GetInstance<LoginViewModel>();
 
             _messenger = messenger;

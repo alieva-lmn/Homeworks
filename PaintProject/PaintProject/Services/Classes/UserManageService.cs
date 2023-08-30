@@ -101,5 +101,37 @@ namespace PaintProject.Services.Classes
                 return false;
             }
         }
+
+        public async Task<bool> UpdateUserAsync(User user)
+        {
+            try
+            {
+                JsonSerializerSettings settings = new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                };
+
+                string userJson = JsonConvert.SerializeObject(user, settings);
+                var content = new StringContent(userJson, System.Text.Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _httpClient.PostAsync("updateuser", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    return bool.Parse(result);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show($"{ex.Message}");
+                return false;
+            }
+        }
+
     }
 }

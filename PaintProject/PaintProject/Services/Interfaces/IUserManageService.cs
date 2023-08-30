@@ -12,5 +12,6 @@ namespace PaintProject.Services.Interfaces
         public Task<User> GetUserAsync(string username, string password);
         public Task<bool> CheckUserExistsAsync(string username);
         public Task<bool> AddUserAsync(User user);
+        public Task<bool> UpdateUserAsync(User user);
     }
 }

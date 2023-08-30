@@ -42,7 +42,6 @@ namespace PaintProject.DBContext
                 entity.Property(u => u.Password).IsRequired();
                 entity.Property(u => u.Confirmation).IsRequired();
                 entity.Property(u => u.Email).IsRequired();
-                entity.Property(u => u.isLoggedIn).IsRequired();
 
                 entity.HasIndex(u => u.Username).IsUnique();
                 entity.HasIndex(u => u.Email).IsUnique();

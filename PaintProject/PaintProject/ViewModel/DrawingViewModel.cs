@@ -35,6 +35,7 @@ namespace PaintProject.ViewModel
         private readonly IShapeDrawService _shapeDrawService;
         private readonly IPictureSaverService _pictureSaverService;
         private readonly INavigationService _navigationService;
+        private readonly IUserManageService _userManageService;
         private readonly IMessenger _messenger;
         public enum ShapeType { None, Rectangle, Circle, Line };
 
@@ -91,12 +92,13 @@ namespace PaintProject.ViewModel
         public User User { get; set; } = new();
 
 
-        public DrawingViewModel(IShapeDrawService shapeDrawService, IPictureSaverService pictureSaverService, INavigationService navigationService, IMessenger messenger)
+        public DrawingViewModel(IShapeDrawService shapeDrawService, IPictureSaverService pictureSaverService, INavigationService navigationService, IMessenger messenger, IUserManageService userManageService)
         {
             _shapeDrawService = shapeDrawService;
             _pictureSaverService = pictureSaverService;
             _navigationService = navigationService;
             _messenger = messenger;
+            _userManageService = userManageService;
 
             _messenger.Register<DataMessage>(this, message =>
             {
@@ -222,7 +224,7 @@ namespace PaintProject.ViewModel
         {
             get => new(() =>
             {
-                _navigationService.NavigateTo<GreetingViewModel>();
+                _navigationService.NavigateTo<GreetingViewModel>(User);
             });
         }
 
@@ -237,8 +239,9 @@ namespace PaintProject.ViewModel
                 _pictureSaverService.SaveInkCanvasToFTPServer(inkCanvas, filepath, Picture.ProjectName);
 
                 Picture.PicturePath = ftppath;
-                //User.PicCollection.Add(Picture);
-                
+                User.PicCollection.Add(Picture);
+                _userManageService.UpdateUserAsync(User);
+
                 isSaved = true;
 
             });

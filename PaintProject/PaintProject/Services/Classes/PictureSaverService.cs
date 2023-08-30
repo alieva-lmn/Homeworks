@@ -69,6 +69,7 @@ namespace PaintProject.Services.Classes
             rtb.Render(inkCanvas);
 
             BitmapEncoder encoder = new PngBitmapEncoder();
+
             encoder.Frames.Add(BitmapFrame.Create(rtb));
 
             using (MemoryStream ms = new MemoryStream())

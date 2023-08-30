@@ -60,7 +60,7 @@ namespace PaintProject.ViewModel
                         {
                             if (isLoggedIn)
                             {
-                                user.Result.isLoggedIn = true;
+                                //user.Result.isLoggedIn = true;
                             }
                             _navigationService.NavigateTo<GreetingViewModel>(user.Result);
                         }
