@@ -15,8 +15,8 @@ namespace PaintProject.ViewModel
     {
         private ViewModelBase _currentViewModel;
 
-        //private PaintProject.Model.User user = new();
-        //private IUserManageService _userManageService;
+        private PaintProject.Model.User user = new();
+        private IUserManageService _userManageService;
 
         //public MainViewModel(IUserManageService userManageService)
         //{
@@ -38,6 +38,10 @@ namespace PaintProject.ViewModel
         }
         public MainViewModel(IMessenger messenger)
         {
+            //if (_userManageService)
+            //{
+
+            //}
             CurrentViewModel = App.Container.GetInstance<LoginViewModel>();
 
             _messenger = messenger;

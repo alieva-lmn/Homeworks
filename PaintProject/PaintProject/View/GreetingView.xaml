@@ -49,10 +49,11 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Margin="5">
-                        <Button Width="100" Height="100" Margin="15" Command="{Binding ButtonCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
-                            <Button.Content>
-                                <Image Source="{Binding PicturePath}" Stretch="Uniform"/>
-                            </Button.Content>
+                        <Button 
+                                Command="{Binding Path=DataContext.ButtonCommand, ElementName=GreetingControl}"
+                                CommandParameter="{Binding}" 
+                                Background="Transparent" BorderBrush="Transparent" Width="150" Height="100">
+                            <Image HorizontalAlignment="Center" Stretch="Uniform" Source="{Binding PicturePath}" Cursor="Hand"/>
                         </Button>
                         <TextBlock Text="{Binding ProjectName}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Date}" VerticalAlignment="Center" HorizontalAlignment="Center"/>

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using User = PaintProject.Model.User;
 
 namespace PaintProject.ViewModel
@@ -27,7 +28,8 @@ namespace PaintProject.ViewModel
 
             _messenger.Register<DataMessage>(this, message =>
             {
-                User = message.Data as User;
+                if (message.Data.GetType().Name == nameof(User))
+                    User = message.Data as User;
             });
         }
 
@@ -36,6 +38,14 @@ namespace PaintProject.ViewModel
             get => new(() =>
             {
                 _navigationService.NavigateTo<DrawingViewModel>(User);
+            });
+        }
+
+        public RelayCommand<Picture> ButtonCommand
+        {
+            get => new(pic =>
+            {
+                _navigationService.NavigateTo<DrawingViewModel>(pic);
             });
         }
 

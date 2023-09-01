@@ -89,6 +89,7 @@ namespace PaintProject.ViewModel
         private bool isSaved = false;
 
         public Picture Picture { get; set; } = new();
+        //public Picture SelectedPic { get; set; } = new();
         public User User { get; set; } = new();
 
 
@@ -102,10 +103,12 @@ namespace PaintProject.ViewModel
 
             _messenger.Register<DataMessage>(this, message =>
             {
-                User = message.Data as User;
-            });
+                if (message.Data.GetType().Name == nameof(User))
+                    User = message.Data as User;
+                else if (message.Data.GetType().Name == nameof(Picture))
+                    Picture = message.Data as Picture;
 
-            Picture.UserId = User.UserId;
+            });
         }
 
 

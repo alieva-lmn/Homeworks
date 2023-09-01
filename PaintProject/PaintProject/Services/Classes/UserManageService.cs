@@ -106,12 +106,12 @@ namespace PaintProject.Services.Classes
         {
             try
             {
-                JsonSerializerSettings settings = new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                };
+                //JsonSerializerSettings settings = new JsonSerializerSettings
+                //{
+                //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                //};
 
-                string userJson = JsonConvert.SerializeObject(user, settings);
+                string userJson = JsonConvert.SerializeObject(user);
                 var content = new StringContent(userJson, System.Text.Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await _httpClient.PostAsync("updateuser", content);

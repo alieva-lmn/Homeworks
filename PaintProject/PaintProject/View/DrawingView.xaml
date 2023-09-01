@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PaintProject.View"
              mc:Ignorable="d" 
              xmlns:ViewModel="clr-namespace:PaintProject.ViewModel"
-             xmlns:mD="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:mD="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:PaintProject.Converters="clr-namespace:PaintProject.Converters"
              d:DataContext="{d:DesignInstance Type=ViewModel:DrawingViewModel}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
@@ -18,6 +18,10 @@
              d:DesignHeight="500" d:DesignWidth="750"
              Name="DrawingControl">
 
+    <UserControl.Resources>
+        <PaintProject.Converters:ImagePathToBrushConverter x:Key="ImagePathToBrushConverter" />
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -113,12 +117,15 @@
         </StackPanel>
 
 
-        <InkCanvas x:Name="inkCanvas" Grid.ColumnSpan="4" DefaultDrawingAttributes="{Binding InkDrawingAttributes}"
+        <InkCanvas x:Name="inkCanvas" Grid.ColumnSpan="4" DefaultDrawingAttributes="{Binding InkDrawingAttributes}" Background="{Binding Picture.PicturePath, Converter={StaticResource ImagePathToBrushConverter}}"
            EditingMode="{Binding CurrentMode}"
-           Grid.Row="1" Background="White">
+           Grid.Row="1">
             <InkCanvas.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding CanvasMouseDownCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=inkCanvas}" />
             </InkCanvas.InputBindings>
+            <!--<InkCanvas.Background>
+                <ImageBrush ImageSource="{Binding Picture.PicturePath, Converter={StaticResource ImagePathToBrushConverter}}"/>
+            </InkCanvas.Background>-->
         </InkCanvas>
 
     </Grid>
