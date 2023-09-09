@@ -36,7 +36,6 @@ section{
     color: var(--pink);
 }
 
-
 .btn{
     display: inline-block;
     margin-top: 1rem;
@@ -223,6 +222,9 @@ header .fa-bars{
     color: #555;
     font-size: 1.3rem;
 }
+
+
+
 
 
 
