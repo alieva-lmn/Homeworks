@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <header>
@@ -27,9 +28,10 @@
         <div class="icons">
             <a href="#" class="fas fa-heart"></a>
             <a href="#" class="fas fa-shopping-cart"></a>
-            <a href="#" class="fas fa-user"></a>
+            <button class="btnLogin-popup"><a href="#" class="fas fa-user"></a></button>
         </div>
     </header>
+
 
     <section class="home" id="home">
         
@@ -38,6 +40,59 @@
             <span> natural & beautiful flowers </span>
             <p>Welcome to our Flower Shop, where the language of love is spoken through the beauty of flowers. Our mission is to help you express your emotions, celebrate life's precious moments, and make every occasion unforgettable with our handcrafted bouquets.</p>
             <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="wrapper">
+
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+    
+            <div class="form-box login">
+                <h2>Sign in</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Sign in</button>
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="#" class="register-link">Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="form-box register">
+                <h2>Sign up</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">I agree to the terms & conditions</label>
+                    </div>
+                    <button type="submit" class="btn">Sign up</button>
+                    <div class="login-register">
+                        <p>Already have an account? <a href="#" class="login-link">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+            
         </div>
 
     </section>
@@ -370,6 +425,10 @@
         </div>
 
     </section>
+
+    <script src="js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
