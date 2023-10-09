@@ -544,8 +544,8 @@ header .fa-bars{
 
 .contact .row{
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    flex-wrap: wrap-reverse;
+    gap: 2.5rem;
     align-items: center;
 }
 
