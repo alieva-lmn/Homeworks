@@ -93,7 +93,10 @@ header .icons a:hover{
     color: var(--pink);
 }
 
-header .icons .btnLogin-popup{
+header .icons .btnLogin-popup,
+.btnTheme-toggle-off,
+.btnTheme-toggle-on
+{
     background: transparent;
     cursor: pointer;
 }
