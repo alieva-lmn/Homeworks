@@ -623,7 +623,8 @@ header .fa-bars{
 
 .footer .box-container .box img{
     margin-top: 1rem;
-    width: 50%;
+    width: 35px;
+    height: auto;
 }
 
 .footer .credit{
