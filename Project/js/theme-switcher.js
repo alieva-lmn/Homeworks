@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
         themeStyle.setAttribute('href', savedTheme);
     }
 
-    btnThemeToggleOff.addEventListener('click', function () {
+    btnThemeToggleOff.addEventListener('click', function (event) {
 
+        event.preventDefault();
         const iconElement = btnThemeToggleOff.querySelector('a');
 
         if (themeStyle.getAttribute('href') === 'css/light-theme.css') {
