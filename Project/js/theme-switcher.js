@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (savedTheme) {
         themeStyle.setAttribute('href', savedTheme);
+        if (savedTheme === 'dark-theme.css') {
+            document.body.classList.add('dark');
+        }
     }
 
     btnThemeToggleOff.addEventListener('click', function (event) {
@@ -15,15 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (themeStyle.getAttribute('href') === 'css/light-theme.css') {
             themeStyle.setAttribute('href', 'css/dark-theme.css');
             localStorage.setItem('theme', 'css/dark-theme.css');
+            document.body.classList.add('dark');
 
             iconElement.classList.remove('fa-toggle-off');
             iconElement.classList.add('fa-toggle-on');
         } else {
             themeStyle.setAttribute('href', 'css/light-theme.css');
             localStorage.setItem('theme', 'css/light-theme.css');
+            document.body.classList.remove('dark');
 
             iconElement.classList.remove('fa-toggle-on');
             iconElement.classList.add('fa-toggle-off');
         }
     });
+    
 });
