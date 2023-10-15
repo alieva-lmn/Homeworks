@@ -41,14 +41,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     });
-
-
-    // window.addEventListener('click', function (event) {
-    //     if (event.target === modal) {
-    //         body.classList.remove('modal-open');
-    //         modal.style.display = 'none';
-    //         window.scrollTo(0, scrollTop);
-    //     }
-    //   });
-    
 });
