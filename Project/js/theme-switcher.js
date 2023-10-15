@@ -1,35 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () { 
     const btnThemeToggleOff = document.querySelector('.btnTheme-toggle-off');
-    const themeStyle = document.getElementById('theme-style');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme) {
-        themeStyle.setAttribute('href', savedTheme);
-        if (savedTheme === 'dark-theme.css') {
-            document.body.classList.add('dark');
-        }
-    }
 
     btnThemeToggleOff.addEventListener('click', function (event) {
 
         event.preventDefault();
+
         const iconElement = btnThemeToggleOff.querySelector('a');
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = (currentTheme === 'light') ? 'dark' : 'light';
 
-        if (themeStyle.getAttribute('href') === 'css/light-theme.css') {
-            themeStyle.setAttribute('href', 'css/dark-theme.css');
-            localStorage.setItem('theme', 'css/dark-theme.css');
-            document.body.classList.add('dark');
-
+        if (currentTheme === 'light') {
             iconElement.classList.remove('fa-toggle-off');
             iconElement.classList.add('fa-toggle-on');
         } else {
-            themeStyle.setAttribute('href', 'css/light-theme.css');
-            localStorage.setItem('theme', 'css/light-theme.css');
-            document.body.classList.remove('dark');
-
             iconElement.classList.remove('fa-toggle-on');
             iconElement.classList.add('fa-toggle-off');
         }
+
+        document.documentElement.setAttribute('data-theme', newTheme);
     });
     
 });

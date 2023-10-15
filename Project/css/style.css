@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --pink: #e84393;
 }
 
@@ -17,7 +17,44 @@ body {
 body.dark {
     color: var(--text-color-dark);
     background-color: var(--background-color-dark);
-}
+} */
+
+
+:root {
+    --pink: #e84393;
+    --primary-color: #666;
+    --secondary-color: #333;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #292922;
+    --color: rgba(255,51,153,.05);
+    --frame-color: #eee;
+  }
+  [data-theme="dark"] {
+    --primary-color: #9b9696;
+    --secondary-color: #fff;
+    --font-color: #e1e1ff;
+    --bg-color: #333333;
+    --heading-color: #63656d;
+    --color: rgba(166, 27, 97, 0.167);
+    --frame-color: #3b3b3b;
+  }
+  body {
+    background-color: var(--bg-color);
+    background: var(--bg-color);
+    color: var(--font-color);
+  }
+  h1 {
+    color: var(--secondary-color);
+  }
+  h3 {
+    color: var(--secondary-color);
+  }
+  a{
+    color: var(--primary-color);
+  }
+
+
 
 *{
     margin: 0; padding: 0;
@@ -46,7 +83,8 @@ section{
     /* color: #333; */
     padding: 1rem;
     margin: 2rem 0;
-    background: rgba(255,51,153,.05);
+    /* background: rgba(255,51,153,.05); */
+    background: var(--color)
 }
 
 .heading span{
@@ -362,6 +400,7 @@ header .fa-bars{
     top: 50%; transition: translateY(-50%);
     font-size: 3rem;
     background: #fff;
+    color: #333;
     width: 100%;
     padding: 1rem 2rem;
     text-align: center;
@@ -374,7 +413,7 @@ header .fa-bars{
 
 .about .row .content h3{
     font-size: 3rem;
-    color: #333; 
+    /* color: #333;  */
 }
 
 .about .row .content p{
@@ -386,7 +425,8 @@ header .fa-bars{
 }
 
 .icons-container{
-    background: #eee;
+    /* background: #eee; */
+    background: var(--frame-color);
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -426,7 +466,8 @@ header .fa-bars{
 }
 
 .products .box-container .box{
-    flex: 0%;
+    background: white;
+    flex: auto;
     box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
     border-radius: .5rem;
     border: .1rem solid rgba(0,0,0,.1);
@@ -567,7 +608,7 @@ header .fa-bars{
 
 .review .box-container .box .user h3{
     font-size: 2rem;
-    color: #333;
+    /* color: #333; */
 }
 
 .review .box-container .box .user span{
@@ -630,14 +671,14 @@ header .fa-bars{
 }
 
 .footer .box-container .box h3{
-    color: #333;
+    /* color: #333; */
     font-size: 2.5rem;
     padding: 1rem 0;
 }
 
 .footer .box-container .box a{
     display: block;
-    color: #666;
+    /* color: #666; */
     font-size: 1.5rem;
     padding: 1rem 0;
 }
@@ -659,7 +700,7 @@ header .fa-bars{
     margin-top: 1.5rem;
     padding-top: 2.5rem;
     font-size: 2rem;
-    color: #333;
+    /* color: #333; */
     border-top: .1rem solid rgba(0,0,0,.1);
 }
 

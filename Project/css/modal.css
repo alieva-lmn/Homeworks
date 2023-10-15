@@ -67,6 +67,7 @@ body.modal-open {
   
   .modal-content {
     background-color: #fefefe;
+    color: #333;
     margin: 0 auto;
     margin-top: 10%;
     padding: 20px;
